@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/tailwind.output.css" />
+		<title>Espacio 126 - Agencia en Concepcion</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<style>
+			html,
+			body {
+				font-family: "Inter", sans-serif;
+			}
+		</style>
+
+		<style class="fslightbox-styles">
+			.fslightbox-absoluted {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.fslightbox-fade-in {
+				animation: fslightbox-fade-in 0.25s cubic-bezier(0, 0, 0.7, 1);
+			}
+			.fslightbox-fade-out {
+				animation: fslightbox-fade-out 0.25s ease;
+			}
+			.fslightbox-fade-in-strong {
+				animation: fslightbox-fade-in-strong 0.25s cubic-bezier(0, 0, 0.7, 1);
+			}
+			.fslightbox-fade-out-strong {
+				animation: fslightbox-fade-out-strong 0.25s ease;
+			}
+			@keyframes fslightbox-fade-in {
+				from {
+					opacity: 0.65;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			@keyframes fslightbox-fade-out {
+				from {
+					opacity: 0.35;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+			@keyframes fslightbox-fade-in-strong {
+				from {
+					opacity: 0.3;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			@keyframes fslightbox-fade-out-strong {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+			.fslightbox-cursor-grabbing {
+				cursor: grabbing;
+			}
+			.fslightbox-full-dimension {
+				width: 100%;
+				height: 100%;
+			}
+			.fslightbox-open {
+				overflow: hidden;
+				height: 100%;
+			}
+			.fslightbox-flex-centered {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.fslightbox-opacity-0 {
+				opacity: 0 !important;
+			}
+			.fslightbox-opacity-1 {
+				opacity: 1 !important;
+			}
+			.fslightbox-scrollbarfix {
+				padding-right: 17px;
+			}
+			.fslightbox-transform-transition {
+				transition: transform 0.3s;
+			}
+			.fslightbox-container {
+				font-family: Arial, sans-serif;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: linear-gradient(rgba(30, 30, 30, 0.9), #000 1810%);
+				z-index: 1000000000;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-tap-highlight-color: transparent;
+			}
+			.fslightbox-container * {
+				box-sizing: border-box;
+			}
+			.fslightbox-svg-path {
+				transition: fill 0.15s ease;
+				fill: #ddd;
+			}
+			.fslightbox-nav {
+				height: 45px;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.fslightbox-slide-number-container {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+				height: 100%;
+				font-size: 15px;
+				color: #d7d7d7;
+				z-index: 0;
+				max-width: 55px;
+				text-align: left;
+			}
+			.fslightbox-slide-number-container .fslightbox-flex-centered {
+				height: 100%;
+			}
+			.fslightbox-slash {
+				display: block;
+				margin: 0 5px;
+				width: 1px;
+				height: 12px;
+				transform: rotate(15deg);
+				background: #fff;
+			}
+			.fslightbox-toolbar {
+				position: absolute;
+				z-index: 3;
+				right: 0;
+				top: 0;
+				height: 100%;
+				display: flex;
+				background: rgba(35, 35, 35, 0.65);
+			}
+			.fslightbox-toolbar-button {
+				height: 100%;
+				width: 45px;
+				cursor: pointer;
+			}
+			.fslightbox-toolbar-button:hover .fslightbox-svg-path {
+				fill: #fff;
+			}
+			.fslightbox-slide-btn-container {
+				display: flex;
+				align-items: center;
+				padding: 12px 12px 12px 6px;
+				position: absolute;
+				top: 50%;
+				cursor: pointer;
+				z-index: 3;
+				transform: translateY(-50%);
+			}
+			@media (min-width: 476px) {
+				.fslightbox-slide-btn-container {
+					padding: 22px 22px 22px 6px;
+				}
+			}
+			@media (min-width: 768px) {
+				.fslightbox-slide-btn-container {
+					padding: 30px 30px 30px 6px;
+				}
+			}
+			.fslightbox-slide-btn-container:hover .fslightbox-svg-path {
+				fill: #f1f1f1;
+			}
+			.fslightbox-slide-btn {
+				padding: 9px;
+				font-size: 26px;
+				background: rgba(35, 35, 35, 0.65);
+			}
+			@media (min-width: 768px) {
+				.fslightbox-slide-btn {
+					padding: 10px;
+				}
+			}
+			@media (min-width: 1600px) {
+				.fslightbox-slide-btn {
+					padding: 11px;
+				}
+			}
+			.fslightbox-slide-btn-container-previous {
+				left: 0;
+			}
+			@media (max-width: 475.99px) {
+				.fslightbox-slide-btn-container-previous {
+					padding-left: 3px;
+				}
+			}
+			.fslightbox-slide-btn-container-next {
+				right: 0;
+				padding-left: 12px;
+				padding-right: 3px;
+			}
+			@media (min-width: 476px) {
+				.fslightbox-slide-btn-container-next {
+					padding-left: 22px;
+				}
+			}
+			@media (min-width: 768px) {
+				.fslightbox-slide-btn-container-next {
+					padding-left: 30px;
+				}
+			}
+			@media (min-width: 476px) {
+				.fslightbox-slide-btn-container-next {
+					padding-right: 6px;
+				}
+			}
+			.fslightbox-down-event-detector {
+				position: absolute;
+				z-index: 1;
+			}
+			.fslightbox-slide-swiping-hoverer {
+				z-index: 4;
+			}
+			.fslightbox-invalid-file-wrapper {
+				font-size: 22px;
+				color: #eaebeb;
+				margin: auto;
+			}
+			.fslightbox-video {
+				object-fit: cover;
+			}
+			.fslightbox-youtube-iframe {
+				border: 0;
+			}
+			.fslightbox-loader {
+				display: block;
+				margin: auto;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 67px;
+				height: 67px;
+			}
+			.fslightbox-loader div {
+				box-sizing: border-box;
+				display: block;
+				position: absolute;
+				width: 54px;
+				height: 54px;
+				margin: 6px;
+				border: 5px solid;
+				border-color: #999 transparent transparent transparent;
+				border-radius: 50%;
+				animation: fslightbox-loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+			}
+			.fslightbox-loader div:nth-child(1) {
+				animation-delay: -0.45s;
+			}
+			.fslightbox-loader div:nth-child(2) {
+				animation-delay: -0.3s;
+			}
+			.fslightbox-loader div:nth-child(3) {
+				animation-delay: -0.15s;
+			}
+			@keyframes fslightbox-loader {
+				0% {
+					transform: rotate(0);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+			.fslightbox-source {
+				position: relative;
+				z-index: 2;
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body
+		class="relative w-full overflow-x-hidden antialiased  bg-gradient-to-bl from-purple-800 via-purple-600 to-purple-400"
+	>
+		<header class="">
+			<nav
+				class="relative flex items-center justify-between max-w-5xl px-4 py-4 mx-auto "
+			>
+				<a class="text-3xl font-bold leading-none" href="./index.html">
+					<svg
+						class="w-24"
+						viewBox="00 00 112 93"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M5.695 57.712c3.461 0 6.077-.546 7.876-1.666 1.798-1.12 3.08-2.786 3.842-4.998h7.358L19.51 88.52h-8.284l3.434-24.5H4.823l.872-6.31zM40.413 81.092h12.126l-1.063 7.429H26.87l.818-5.9L42.865 68.72c.11-.11.6-.574 1.472-1.338.844-.792 1.526-1.64 2.016-2.595.49-.956.736-1.912.736-2.84 0-1.284-.409-2.295-1.199-3.032-.79-.738-1.907-1.12-3.297-1.12-1.554 0-2.834.492-3.815 1.502-.981.983-1.526 2.322-1.608 3.933h-8.175c.19-2.54.926-4.78 2.152-6.719a13.043 13.043 0 015.015-4.561c2.098-1.093 4.441-1.639 7.057-1.639 3.707 0 6.677.983 8.939 2.923 2.261 1.939 3.379 4.534 3.379 7.73 0 2.621-.654 4.888-1.962 6.8-1.308 1.94-2.998 3.878-5.042 5.872l-8.12 7.457zM81.48 64.895c1.825 1.01 3.27 2.458 4.305 4.288 1.063 1.858 1.58 3.988 1.58 6.391 0 2.568-.708 4.89-2.152 6.965-1.445 2.076-3.407 3.688-5.86 4.835-2.479 1.147-5.177 1.72-8.147 1.72-2.807 0-5.205-.519-7.222-1.53-2.016-1.01-3.57-2.43-4.632-4.26-1.063-1.83-1.608-3.906-1.608-6.255 0-2.567.545-4.807 1.662-6.719 1.118-1.912 2.644-3.987 4.633-6.2l1.226-1.392 9.865-11.69h9.047l-10.273 12.4c.3-.028.79-.055 1.471-.055 2.235 0 4.278.492 6.104 1.502zm-4.552 15.24c1.281-1.12 1.935-2.567 1.935-4.342 0-1.639-.545-2.977-1.635-4.015-1.09-1.038-2.507-1.557-4.25-1.557-1.854 0-3.462.574-4.742 1.694-1.309 1.12-1.963 2.594-1.963 4.397 0 1.639.546 2.95 1.636 3.988 1.09 1.01 2.534 1.53 4.305 1.53 1.853-.028 3.434-.575 4.714-1.694z"
+							fill="#fff"
+						/>
+						<path
+							d="M88.973 89.094V83.14l12.045-.164V10.024H11.064v42.225H4.769V3.906H107.23V88.93l-18.258.164z"
+							fill="url(#paint0_linear)"
+						/>
+						<defs>
+							<linearGradient
+								id="paint0_linear"
+								x1="15.044"
+								y1="70.109"
+								x2="112.908"
+								y2="13.736"
+								gradientUnits="userSpaceOnUse"
+							>
+								<stop stop-color="#D8430F" />
+								<stop offset=".192" stop-color="#BF227C" />
+								<stop offset=".372" stop-color="#A621C1" />
+								<stop offset=".556" stop-color="#602BB2" />
+								<stop offset=".731" stop-color="#BF227C" />
+								<stop offset=".883" stop-color="#D61237" />
+								<stop offset="1" stop-color="#D61237" />
+							</linearGradient>
+						</defs>
+					</svg>
+				</a>
+				<div class="lg:hidden">
+					<button class="flex items-center p-3 text-white navbar-burger">
+						<svg
+							class="block w-4 h-4 fill-current"
+							viewBox="0 0 20 20"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<title>Mobile menu</title>
+							<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+						</svg>
+					</button>
+				</div>
+				<ul
+					class="absolute hidden transform -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6"
+				>
+					<li>
+						<a
+							class="font-medium text-white hover:text-gray-200"
+							href="./index.html"
+							>Inicio</a
+						>
+					</li>
+
+					<li>
+						<a
+							class="font-medium text-white hover:text-gray-200"
+							href="./index.html#servicios"
+							>Servicios</a
+						>
+					</li>
+
+					<li>
+						<a
+							class="font-medium text-white hover:text-gray-200"
+							href="./portafolio.html"
+							>Portafolio</a
+						>
+					</li>
+				</ul>
+
+				<a
+					class="hidden px-6 py-2 text-sm font-bold text-gray-900 transition duration-200  lg:inline-block lg:ml-auto lg:mr-3 bg-gray-50 hover:bg-gray-100 rounded-xl"
+					href="./contacto.html"
+					>Contacto</a
+				>
+				<a
+					class="hidden px-6 py-2 text-sm font-bold text-white transition duration-200 bg-blue-500  lg:inline-block hover:bg-blue-600 rounded-xl"
+					href="./portafolio.html"
+					>Ver portafolio</a
+				>
+			</nav>
+			<div class="relative z-50 hidden navbar-menu">
+				<div class="fixed inset-0 bg-gray-800 opacity-25 navbar-backdrop"></div>
+				<nav
+					class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto bg-white border-r "
+				>
+					<div class="flex items-center mb-8">
+						<a
+							class="mr-auto text-3xl font-bold leading-none"
+							href="./index.html"
+						>
+							<svg
+								width="112"
+								height="93"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M5.695 57.58c3.461 0 6.077-.544 7.876-1.662 1.798-1.117 3.08-2.78 3.842-4.987h7.358L19.51 88.32h-8.284l3.434-24.444H4.823l.872-6.294zM40.413 80.907h12.126l-1.063 7.412H26.87l.818-5.886 15.178-13.87c.11-.11.6-.573 1.472-1.336.844-.79 1.526-1.635 2.016-2.589.49-.953.736-1.907.736-2.834 0-1.28-.409-2.289-1.199-3.024-.79-.736-1.907-1.118-3.297-1.118-1.554 0-2.834.49-3.815 1.5-.981.98-1.526 2.315-1.608 3.923h-8.175c.19-2.534.926-4.769 2.152-6.703a13.03 13.03 0 015.015-4.551c2.098-1.09 4.441-1.635 7.057-1.635 3.707 0 6.677.98 8.939 2.915 2.261 1.935 3.379 4.524 3.379 7.712 0 2.616-.654 4.878-1.962 6.786-1.308 1.935-2.998 3.87-5.042 5.859l-8.12 7.44zM81.48 64.748c1.825 1.008 3.27 2.452 4.305 4.278 1.063 1.853 1.58 3.978 1.58 6.377 0 2.561-.708 4.877-2.152 6.948-1.445 2.071-3.407 3.68-5.86 4.824-2.479 1.144-5.177 1.716-8.147 1.716-2.807 0-5.205-.517-7.222-1.526-2.016-1.008-3.57-2.425-4.632-4.25-1.063-1.826-1.608-3.897-1.608-6.241 0-2.562.545-4.796 1.662-6.704 1.118-1.907 2.644-3.978 4.633-6.186l1.226-1.39 9.865-11.663h9.047L73.904 63.303c.3-.027.79-.054 1.471-.054 2.235 0 4.278.49 6.104 1.498zm-4.552 15.205c1.281-1.117 1.935-2.561 1.935-4.332 0-1.636-.545-2.97-1.635-4.006-1.09-1.036-2.507-1.554-4.25-1.554-1.854 0-3.462.573-4.742 1.69-1.309 1.117-1.963 2.589-1.963 4.387 0 1.635.546 2.943 1.636 3.979 1.09 1.008 2.534 1.526 4.305 1.526 1.853-.027 3.434-.572 4.714-1.69z"
+									fill="#080F2B"
+								/>
+								<path
+									d="M88.973 88.891v-5.94l12.045-.164V10.001H11.064v42.13H4.769V3.896H107.23v84.831l-18.258.163z"
+									fill="url(#paint0_linear)"
+								/>
+								<defs>
+									<linearGradient
+										id="paint0_linear"
+										x1="15.044"
+										y1="69.949"
+										x2="112.797"
+										y2="13.512"
+										gradientUnits="userSpaceOnUse"
+									>
+										<stop stop-color="#D8430F" />
+										<stop offset=".192" stop-color="#BF227C" />
+										<stop offset=".372" stop-color="#A621C1" />
+										<stop offset=".556" stop-color="#602BB2" />
+										<stop offset=".731" stop-color="#BF227C" />
+										<stop offset=".883" stop-color="#D61237" />
+										<stop offset="1" stop-color="#D61237" />
+									</linearGradient>
+								</defs>
+							</svg>
+						</a>
+						<button class="navbar-close">
+							<svg
+								class="w-6 h-6 text-gray-400 cursor-pointer hover:text-gray-500"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M6 18L18 6M6 6l12 12"
+								></path>
+							</svg>
+						</button>
+					</div>
+					<div>
+						<ul class="space-y-6">
+							<li>
+								<a
+									class="mb-2 font-medium text-gray-800 hover:text-gray-600"
+									href="./index.html"
+									>Inicio</a
+								>
+							</li>
+
+							<li>
+								<a
+									class="mb-2 font-medium text-gray-800 hover:text-gray-600"
+									href="./index.html#servicios"
+									>Servicios</a
+								>
+							</li>
+
+							<li>
+								<a
+									class="mb-2 font-medium text-gray-800 hover:text-gray-600"
+									href="./portafolio.html"
+									>Portafolio</a
+								>
+							</li>
+						</ul>
+					</div>
+					<div class="mt-auto">
+						<div class="pt-6">
+							<a
+								class="block px-4 py-3 mb-3 text-xs font-semibold leading-none leading-loose text-center  bg-gray-50 hover:bg-gray-100 rounded-xl"
+								href="./contacto.html"
+								>Contacto</a
+							>
+							<a
+								class="block px-4 py-3 mb-2 text-xs font-semibold leading-loose text-center text-white bg-blue-600  hover:bg-blue-700 rounded-xl"
+								href="./portafolio.html"
+								>Portafolio</a
+							>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<section>
+				<div class="grid mt-4 md:grid-cols-6 gap-x-1 sm:grid-cols-2 gap-y-4">
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/audiovisual/bicicleta.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/audiovisual/bicicleta.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/audiovisual/diseno-interiores.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/audiovisual/diseno-interiores.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/diseno-grafico/emporio-apolo.png"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/diseno-grafico/emporio-apolo.png"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/diseno-grafico/laminas-chile.png"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/diseno-grafico/laminas-chile.png"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/diseno-grafico/emporio-del-sol.png"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/diseno-grafico/emporio-del-sol.png"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/audiovisual/modelo-vespa-motonetas.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/audiovisual/modelo-vespa-motonetas.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/informatica/greenescape-energia-solar.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/informatica/greenescape-energia-solar.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/informatica/wedosafety-mascarillas.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/informatica/wedosafety-mascarillas.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/audiovisual/vespa-motonetas.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/audiovisual/vespa-motonetas.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+					<div class="">
+						<a
+							data-fslightbox="gallery"
+							href="./img/portfolio/audiovisual/modelo-ropa-seguridad.jpg"
+							class="inline-block"
+						>
+							<img
+								src="./img/portfolio/audiovisual/modelo-ropa-seguridad.jpg"
+								class="object-cover w-64 h-64"
+								alt=""
+							/>
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="./js/fslightbox.js"></script>
+		<script>
+			// Burger menus
+			document.addEventListener("DOMContentLoaded", function () {
+				// open
+				const burger = document.querySelectorAll(".navbar-burger");
+				const menu = document.querySelectorAll(".navbar-menu");
+
+				if (burger.length && menu.length) {
+					for (var i = 0; i < burger.length; i++) {
+						burger[i].addEventListener("click", function () {
+							for (var j = 0; j < menu.length; j++) {
+								menu[j].classList.toggle("hidden");
+							}
+						});
+					}
+				}
+
+				// close
+				const close = document.querySelectorAll(".navbar-close");
+				const backdrop = document.querySelectorAll(".navbar-backdrop");
+
+				if (close.length) {
+					for (var i = 0; i < close.length; i++) {
+						close[i].addEventListener("click", function () {
+							for (var j = 0; j < menu.length; j++) {
+								menu[j].classList.toggle("hidden");
+							}
+						});
+					}
+				}
+
+				if (backdrop.length) {
+					for (var i = 0; i < backdrop.length; i++) {
+						backdrop[i].addEventListener("click", function () {
+							for (var j = 0; j < menu.length; j++) {
+								menu[j].classList.toggle("hidden");
+							}
+						});
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
